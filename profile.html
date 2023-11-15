@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - Compartilhe e Cultive</title>
+    <title>Jardim Comunitario - Compartilhe e Cultive!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
     <style>
         body {
@@ -59,14 +61,19 @@
         .card .product-info {
             display: flex;
             justify-content: flex-end;
-            font-size: 0.8em; /* Tamanho menor para o texto */
-            margin-top: 5px; /* Espaçamento acima da informação */
+            font-size: 0.8em;
+            /* Tamanho menor para o texto */
+            margin-top: 5px;
+            /* Espaçamento acima da informação */
         }
 
-        .card .product-info > span {
-            background-color: #f2f2f2; /* Cor de fundo para destacar */
-            padding: 2px 5px; /* Espaçamento interno */
-            border-radius: 5px; /* Bordas arredondadas */
+        .card .product-info>span {
+            background-color: #f2f2f2;
+            /* Cor de fundo para destacar */
+            padding: 2px 5px;
+            /* Espaçamento interno */
+            border-radius: 5px;
+            /* Bordas arredondadas */
         }
 
         .dz-preview .dz-progress {
@@ -165,7 +172,6 @@
             color: white;
             text-decoration: underline;
         }
-
     </style>
 </head>
 
@@ -234,6 +240,10 @@
                     <p><strong>Nome:</strong> Maria Silva</p>
                     <p><strong>Email:</strong> maria.silva@example.com</p>
                     <p><strong>Interesses:</strong> Cultivo de ervas, troca de sementes, jardinagem comunitária</p>
+                    <p><strong>Endereço:</strong> Rua das Flores, 123, Jardim Primavera, Curitiba - PR</p>
+                    <p><small class="text-muted mb-3">( Para sua proteção, endereços são privados e usados somente para otimizar as buscas. )</small></p>
+                    <hr />
+                    <div id="map" style="height: 400px; width: 100%;"></div>
                 </div>
 
                 <!-- Produtos Cadastrados -->
@@ -421,18 +431,21 @@
                     <div class="py-3">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#recebidas"><i class="bi bi-box-arrow-in-down"></i> Recebidas</a>
+                                <a class="nav-link active" data-toggle="tab" href="#recebidas"><i
+                                        class="bi bi-box-arrow-in-down"></i> Recebidas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#enviadas"><i class="bi bi-box-arrow-up"></i> Enviadas</a>
+                                <a class="nav-link" data-toggle="tab" href="#enviadas"><i
+                                        class="bi bi-box-arrow-up"></i> Enviadas</a>
                             </li>
                         </ul>
-                
+
                         <div class="tab-content">
                             <div id="recebidas" class="products-list tab-pane fade show active">
                                 <div class="list-group" id="solicitationsList">
                                     <!-- Solicitação 1 -->
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1">Nabo Daikon - João Silva</h5>
                                             <small><i class="bi bi-envelope-fill"></i> Não lida</small>
@@ -441,7 +454,8 @@
                                         <small>3 minutos atrás</small>
                                     </a>
                                     <!-- Solicitação 2 -->
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1">Limão Rosa - Maria Antônia</h5>
                                             <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
@@ -453,11 +467,12 @@
 
                                 </div>
                             </div>
-                
+
                             <div id="enviadas" class="products-list tab-pane fade">
                                 <div class="list-group" id="solicitationsList">
                                     <!-- Solicitação 1 -->
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1">Pepinos para conserva - Miguel</h5>
                                             <small><i class="bi bi-envelope-fill"></i> Não lida</small>
@@ -466,7 +481,8 @@
                                         <small>1 minutos atrás</small>
                                     </a>
                                     <!-- Solicitação 2 -->
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1">Mudas de Manjericão - José Ferreira</h5>
                                             <small><i class="bi bi-envelope-fill"></i> Não lida</small>
@@ -475,7 +491,8 @@
                                         <small>ontem</small>
                                     </a>
                                     <!-- Solicitação 3 -->
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1">Beterraba - Lauro</h5>
                                             <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
@@ -545,7 +562,8 @@
                                 <img src="img/tomate.jpg" class="card-img-top" alt="Tomates">
                                 <div class="card-body">
                                     <h5 class="card-title">Tomates Orgânicos</h5>
-                                    <p class="card-text">Tomates frescos e orgânicos, cultivados localmente. Disponível: 2kg.</p>
+                                    <p class="card-text">Tomates frescos e orgânicos, cultivados localmente. Disponível:
+                                        2kg.</p>
                                     <div class="product-info">
                                         <span class="distance">2 km</span>
                                         <span class="purpose">Doação</span>
@@ -602,7 +620,8 @@
                                 <img src="img/cenouras.jfif" class="card-img-top" alt="Cenouras Orgânicas">
                                 <div class="card-body">
                                     <h5 class="card-title">Cenouras Orgânicas</h5>
-                                    <p class="card-text">Cenouras recém-colhidas, perfeitas para uma alimentação saudável. Disponível: 1kg.</p>
+                                    <p class="card-text">Cenouras recém-colhidas, perfeitas para uma alimentação
+                                        saudável. Disponível: 1kg.</p>
                                     <div class="product-info">
                                         <span class="distance">1 km</span>
                                         <span class="purpose">Doação</span>
@@ -621,7 +640,8 @@
                                 <img src="img/alface.jpg" class="card-img-top" alt="Alface Crespa">
                                 <div class="card-body">
                                     <h5 class="card-title">Alface Crespa</h5>
-                                    <p class="card-text">Folhas de alface crespa frescas e crocantes. Disponível: 500g.</p>
+                                    <p class="card-text">Folhas de alface crespa frescas e crocantes. Disponível: 500g.
+                                    </p>
                                     <div class="product-info">
                                         <span class="distance">13 km</span>
                                         <span class="purpose">Troca</span>
@@ -640,7 +660,8 @@
                                 <img src="img/morangos.jpg" class="card-img-top" alt="Morangos Doce Vida">
                                 <div class="card-body">
                                     <h5 class="card-title">Morangos Doce Vida</h5>
-                                    <p class="card-text">Morangos suculentos e doces, ideais para sobremesas. Disponível: 1kg.</p>
+                                    <p class="card-text">Morangos suculentos e doces, ideais para sobremesas.
+                                        Disponível: 1kg.</p>
                                     <div class="product-info">
                                         <span class="distance">19 km</span>
                                         <span class="purpose">Doação</span>
@@ -659,7 +680,8 @@
                                 <img src="img/pimenta.jpeg" class="card-img-top" alt="Pimenta Malagueta">
                                 <div class="card-body">
                                     <h5 class="card-title">Pimenta Malagueta</h5>
-                                    <p class="card-text">Pimentas malaguetas ardentes, colhidas no ponto certo de maturação. Disponível: 100g.</p>
+                                    <p class="card-text">Pimentas malaguetas ardentes, colhidas no ponto certo de
+                                        maturação. Disponível: 100g.</p>
                                     <div class="product-info">
                                         <span class="distance">5 km</span>
                                         <span class="purpose">Doação</span>
@@ -678,7 +700,8 @@
                                 <img src="img/ervas.jpg" class="card-img-top" alt="Ervas Aromáticas Mix">
                                 <div class="card-body">
                                     <h5 class="card-title">Ervas Aromáticas Mix</h5>
-                                    <p class="card-text">Um mix de ervas aromáticas para temperar seus pratos. Disponível: 200g.</p>
+                                    <p class="card-text">Um mix de ervas aromáticas para temperar seus pratos.
+                                        Disponível: 200g.</p>
                                     <div class="product-info">
                                         <span class="distance">5 km</span>
                                         <span class="purpose">Troca</span>
@@ -697,7 +720,8 @@
                                 <img src="img/aboboras.jpg" class="card-img-top" alt="Abóboras Mini">
                                 <div class="card-body">
                                     <h5 class="card-title">Abóboras Mini</h5>
-                                    <p class="card-text">Pequenas abóboras perfeitas para decoração ou consumo individual. Disponível: 10 unidades.</p>
+                                    <p class="card-text">Pequenas abóboras perfeitas para decoração ou consumo
+                                        individual. Disponível: 10 unidades.</p>
                                     <div class="product-info">
                                         <span class="distance">8 km</span>
                                         <span class="purpose">Doação</span>
@@ -880,7 +904,7 @@
         });
 
 
-            // Adiciona ação ao botão "Solicitar"
+        // Adiciona ação ao botão "Solicitar"
         $('.btn-success').click(function (e) {
             e.preventDefault(); // Impede a ação padrão do link
             // Pega o nome do produto associado ao botão clicado
@@ -889,63 +913,73 @@
             abrirModalSolicitacao(productName);
         });
 
-// Função para abrir a modal de solicitação
-function abrirModalSolicitacao(productName, productOwner, productOwnerEmail, distance) {
-    // Estrutura HTML da modal
-    const modalHTML = `
-        <div class="modal fade" id="solicitacao-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">Solicitar Produto</h6>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p><strong>Usuário que está disponibilizando:</strong> Maria da Silva </p>                        
-                        <p><strong>Email:</strong> mariasidasilva@email-teste.com</p>
-                        <p><strong>Distância:</strong> Produto está a 5km da sua região</p>                        
-                        <!--
-                        <p><strong>Usuário que está disponibilizando:</strong> ${productOwner}</p>                        
-                        <p><strong>Email:</strong> ${productOwnerEmail}</p>
-                        <p><strong>Distância:</strong> Produto está a 5km da sua região</p>
-                        <p><strong>Distância:</strong> Produto está a ${distance} km da sua região</p> 
-                        -->
-                        <p>Deseja solicitar o produto <strong>${productName}</strong>? Insira uma mensagem:</p>
-                        <textarea class="form-control" id="solicitacao-mensagem" rows="3"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-success" id="enviar-solicitacao-btn">Enviar Solicitação</button>
+        // Função para abrir a modal de solicitação
+        function abrirModalSolicitacao(productName, productOwner, productOwnerEmail, distance) {
+            // Estrutura HTML da modal
+            const modalHTML = `
+                <div class="modal fade" id="solicitacao-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="exampleModalLabel">Solicitar Produto</h6>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Usuário que está disponibilizando:</strong> Maria da Silva </p>                        
+                                <p><strong>Email:</strong> mariasidasilva@email-teste.com</p>
+                                <p><strong>Distância:</strong> Produto está a 5km da sua região</p>                        
+                                <!--
+                                <p><strong>Usuário que está disponibilizando:</strong> ${productOwner}</p>                        
+                                <p><strong>Email:</strong> ${productOwnerEmail}</p>
+                                <p><strong>Distância:</strong> Produto está a 5km da sua região</p>
+                                <p><strong>Distância:</strong> Produto está a ${distance} km da sua região</p> 
+                                -->
+                                <p>Deseja solicitar o produto <strong>${productName}</strong>? Insira uma mensagem:</p>
+                                <textarea class="form-control" id="solicitacao-mensagem" rows="3"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-success" id="enviar-solicitacao-btn">Enviar Solicitação</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    `;
+            `;
 
-    // Adiciona a modal ao body
-    $('body').append(modalHTML);
+            // Adiciona a modal ao body
+            $('body').append(modalHTML);
 
-    // Adicione um event listener ao botão "Enviar Solicitação"
-    $('#enviar-solicitacao-btn').click(function (e) {
-        e.preventDefault();
-        // Aqui você pode adicionar a lógica para enviar a solicitação
-        // Feche a modal após o envio
-        $('#solicitacao-modal').modal('hide');
-    });
+            // Adicione um event listener ao botão "Enviar Solicitação"
+            $('#enviar-solicitacao-btn').click(function (e) {
+                e.preventDefault();
+                // Aqui você pode adicionar a lógica para enviar a solicitação
+                // Feche a modal após o envio
+                $('#solicitacao-modal').modal('hide');
+            });
 
-    // Adicione um event listener ao botão "Fechar"
-    $('#fechar-modal-btn').click(function (e) {
-        e.preventDefault();
-        // Feche a modal
-        $('#solicitacao-modal').modal('hide');
-    });
+            // Adicione um event listener ao botão "Fechar"
+            $('#fechar-modal-btn').click(function (e) {
+                e.preventDefault();
+                // Feche a modal
+                $('#solicitacao-modal').modal('hide');
+            });
 
-    // Abre a modal
-    $('#solicitacao-modal').modal('show');
-}
+            // Abre a modal
+            $('#solicitacao-modal').modal('show');
+        }
 
- 
-</script>
+        // MAPA 
+
+        var map = L.map('map').setView([-25.487685, -49.258763], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var marker = L.marker([-25.487685, -49.258763]).addTo(map); // Adiciona um marcador
+
+    </script>
 </body>
 
 </html>
