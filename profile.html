@@ -418,46 +418,84 @@
                 <div id="requests" class="profile-content d-none">
                     <h3>Solicitações Recebidas</h3>
 
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="list-group" id="solicitationsList">
-                                <!-- Solicitação 1 -->
-                                <a href="#"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Tomates Orgânicos - João Silva</h5>
-                                        <small><i class="bi bi-envelope-fill"></i> Não lida</small>
-                                    </div>
-                                    <p class="mb-1">Oi, estou interessado nos seus tomates orgânicos. Ainda estão
-                                        disponíveis?</p>
-                                    <small>3 minutos atrás</small>
-                                </a>
-                                <!-- Solicitação 2 -->
-                                <a href="#"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Mudas de Manjericão - Maria Antônia</h5>
-                                        <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
-                                    </div>
-                                    <p class="mb-1">Gostaria de confirmar a troca para amanhã.</p>
-                                    <small>1 hora atrás</small>
-                                </a>
-                                <!-- Solicitação 3 -->
-                                <a href="#"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Beterraba - Lauro</h5>
-                                        <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
-                                    </div>
-                                    <p class="mb-1">Olá, ainda tem algumas?</p>
-                                    <small>2 dia atrás</small>
-                                </a>
-                                <!-- Adicione mais solicitações conforme necessário -->
+                    <div class="py-3">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#recebidas"><i class="bi bi-box-arrow-in-down"></i> Recebidas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#enviadas"><i class="bi bi-box-arrow-up"></i> Enviadas</a>
+                            </li>
+                        </ul>
+                
+                        <div class="tab-content">
+                            <div id="recebidas" class="products-list tab-pane fade show active">
+                                <div class="list-group" id="solicitationsList">
+                                    <!-- Solicitação 1 -->
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Nabo Daikon - João Silva</h5>
+                                            <small><i class="bi bi-envelope-fill"></i> Não lida</small>
+                                        </div>
+                                        <p class="mb-1">Ainda tem disponíveis?</p>
+                                        <small>3 minutos atrás</small>
+                                    </a>
+                                    <!-- Solicitação 2 -->
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Limão Rosa - Maria Antônia</h5>
+                                            <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
+                                        </div>
+                                        <p class="mb-1">Ainda tem? Posso te levar algumas mudas</p>
+                                        <small>1 hora atrás</small>
+                                    </a>
+                                    <!-- Solicitação 3 -->
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Limão Rosa - Lauro</h5>
+                                            <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
+                                        </div>
+                                        <p class="mb-1">Oi, você mora perto avenida? Posso ir buscar?</p>
+                                        <small>5 dia atrás</small>
+                                    </a>
+                                    <!-- Adicione mais solicitações conforme necessário -->
+                                </div>
+                            </div>
+                
+                            <div id="enviadas" class="products-list tab-pane fade">
+                                <div class="list-group" id="solicitationsList">
+                                    <!-- Solicitação 1 -->
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Pepinos para conserva - Miguel</h5>
+                                            <small><i class="bi bi-envelope-fill"></i> Não lida</small>
+                                        </div>
+                                        <p class="mb-1">Oi, estou interessado. Ainda estão disponíveis?</p>
+                                        <small>1 minutos atrás</small>
+                                    </a>
+                                    <!-- Solicitação 2 -->
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Mudas de Manjericão - José Ferreira</h5>
+                                            <small><i class="bi bi-envelope-fill"></i> Não lida</small>
+                                        </div>
+                                        <p class="mb-1">Podemos troca para amanhã?</p>
+                                        <small>ontem</small>
+                                    </a>
+                                    <!-- Solicitação 3 -->
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Beterraba - Lauro</h5>
+                                            <small><i class="bi bi-envelope-open-fill"></i> Lida</small>
+                                        </div>
+                                        <p class="mb-1">Olá, ainda tem algumas.</p>
+                                        <small>2 dia atrás</small>
+                                    </a>
+                                    <!-- Adicione mais solicitações conforme necessário -->
+                                </div>
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
