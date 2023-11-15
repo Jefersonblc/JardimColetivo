@@ -56,6 +56,19 @@
             flex-direction: column;
         }
 
+        .card .product-info {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.8em; /* Tamanho menor para o texto */
+            margin-top: 5px; /* Espaçamento acima da informação */
+        }
+
+        .card .product-info > span {
+            background-color: #f2f2f2; /* Cor de fundo para destacar */
+            padding: 2px 5px; /* Espaçamento interno */
+            border-radius: 5px; /* Bordas arredondadas */
+        }
+
         .dz-preview .dz-progress {
             display: none;
         }
@@ -502,8 +515,11 @@
                                 <img src="img/tomate.jpg" class="card-img-top" alt="Tomates">
                                 <div class="card-body">
                                     <h5 class="card-title">Tomates Orgânicos</h5>
-                                    <p class="card-text">Tomates frescos e orgânicos, cultivados localmente. Disponível:
-                                        2kg.</p>
+                                    <p class="card-text">Tomates frescos e orgânicos, cultivados localmente. Disponível: 2kg.</p>
+                                    <div class="product-info">
+                                        <span class="distance">2 km</span>
+                                        <span class="purpose">Doação</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -519,6 +535,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Manjericão Fresco</h5>
                                     <p class="card-text">Folhas de manjericão frescas e aromáticas. Disponível: 50g.</p>
+                                    <div class="product-info">
+                                        <span class="distance">5 km</span>
+                                        <span class="purpose">Doação</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -534,6 +554,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Pimentões Verdes</h5>
                                     <p class="card-text">Variedade de pimentões verdes. Disponível: 1kg.</p>
+                                    <div class="product-info">
+                                        <span class="distance">10 km</span>
+                                        <span class="purpose">Troca</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -548,8 +572,11 @@
                                 <img src="img/cenouras.jfif" class="card-img-top" alt="Cenouras Orgânicas">
                                 <div class="card-body">
                                     <h5 class="card-title">Cenouras Orgânicas</h5>
-                                    <p class="card-text">Cenouras recém-colhidas, perfeitas para uma alimentação
-                                        saudável. Disponível: 1kg.</p>
+                                    <p class="card-text">Cenouras recém-colhidas, perfeitas para uma alimentação saudável. Disponível: 1kg.</p>
+                                    <div class="product-info">
+                                        <span class="distance">1 km</span>
+                                        <span class="purpose">Doação</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -564,8 +591,11 @@
                                 <img src="img/alface.jpg" class="card-img-top" alt="Alface Crespa">
                                 <div class="card-body">
                                     <h5 class="card-title">Alface Crespa</h5>
-                                    <p class="card-text">Folhas de alface crespa frescas e crocantes. Disponível: 500g.
-                                    </p>
+                                    <p class="card-text">Folhas de alface crespa frescas e crocantes. Disponível: 500g.</p>
+                                    <div class="product-info">
+                                        <span class="distance">13 km</span>
+                                        <span class="purpose">Troca</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -580,8 +610,11 @@
                                 <img src="img/morangos.jpg" class="card-img-top" alt="Morangos Doce Vida">
                                 <div class="card-body">
                                     <h5 class="card-title">Morangos Doce Vida</h5>
-                                    <p class="card-text">Morangos suculentos e doces, ideais para sobremesas.
-                                        Disponível: 300g.</p>
+                                    <p class="card-text">Morangos suculentos e doces, ideais para sobremesas. Disponível: 1kg.</p>
+                                    <div class="product-info">
+                                        <span class="distance">19 km</span>
+                                        <span class="purpose">Doação</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -596,8 +629,11 @@
                                 <img src="img/pimenta.jpeg" class="card-img-top" alt="Pimenta Malagueta">
                                 <div class="card-body">
                                     <h5 class="card-title">Pimenta Malagueta</h5>
-                                    <p class="card-text">Pimentas malaguetas ardentes, colhidas no ponto certo de
-                                        maturação. Disponível: 100g.</p>
+                                    <p class="card-text">Pimentas malaguetas ardentes, colhidas no ponto certo de maturação. Disponível: 100g.</p>
+                                    <div class="product-info">
+                                        <span class="distance">5 km</span>
+                                        <span class="purpose">Doação</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -612,8 +648,11 @@
                                 <img src="img/ervas.jpg" class="card-img-top" alt="Ervas Aromáticas Mix">
                                 <div class="card-body">
                                     <h5 class="card-title">Ervas Aromáticas Mix</h5>
-                                    <p class="card-text">Um mix de ervas aromáticas para temperar seus pratos.
-                                        Disponível: 200g.</p>
+                                    <p class="card-text">Um mix de ervas aromáticas para temperar seus pratos. Disponível: 200g.</p>
+                                    <div class="product-info">
+                                        <span class="distance">5 km</span>
+                                        <span class="purpose">Troca</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
@@ -628,8 +667,11 @@
                                 <img src="img/aboboras.jpg" class="card-img-top" alt="Abóboras Mini">
                                 <div class="card-body">
                                     <h5 class="card-title">Abóboras Mini</h5>
-                                    <p class="card-text">Pequenas abóboras perfeitas para decoração ou consumo
-                                        individual. Disponível: 3 unidades.</p>
+                                    <p class="card-text">Pequenas abóboras perfeitas para decoração ou consumo individual. Disponível: 10 unidades.</p>
+                                    <div class="product-info">
+                                        <span class="distance">8 km</span>
+                                        <span class="purpose">Doação</span>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" class="btn btn-link">Ver mais</a>
