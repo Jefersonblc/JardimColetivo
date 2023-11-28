@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+
+
     <style>
         body {
             background-color: #eaefdd;
@@ -391,15 +396,23 @@
                             <label for="productCategory" class="form-label">Categoria do Produto</label>
                             <select class="form-select" id="productCategory" required>
                                 <option selected>Escolha uma categoria...</option>
-                                <option value="vegetables">Vegetais</option>
                                 <option value="fruits">Frutas</option>
-                                <option value="herbs">Ervas</option>
+                                <option value="vegetables">Vegetais</option>
+                                <option value="herbs">Verduras</option>
+                                <option value="">Temperos</option>
+                                <option value="ornamentals">Ornamentais</option>
                                 <option value="seeds">Sementes</option>
                                 <option value="sprouts">Mudas</option>
                                 <option value="other">Outros</option>
                             </select>
                         </div>
 
+                        <!-- Tags -->
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label">Tags do Produto</label>
+                            <input name='tags' class="form-control" id="productTags" placeholder='Acrecente tags se desejar facilitar as buscas'>
+                        </div>
+                        
                         <!-- Finalidade do Produto -->
                         <div class="mb-3">
                             <label for="productPurpose" class="form-label">Finalidade do Produto</label>
@@ -888,6 +901,9 @@
             distance: 20,
             tolerance: 'pointer',
         });
+
+        const input = document.querySelector('input[name=tags]');
+        new Tagify(input);
 
 
         // INTERESSES
